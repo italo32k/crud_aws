@@ -9,7 +9,13 @@
 
 ``` python -m venv venv ```
 
-``` source/Scripts/activate ```
+## Entrar no ambiente virtual
+
+### Windows
+``` source venv/Scripts/activate ```
+
+### Ubuntu
+``` source nome_do_venv/bin/activate ```
 
 ## Rodar aplicação
 
