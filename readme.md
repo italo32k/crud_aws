@@ -8,12 +8,15 @@
 ## Criar ambiente virtual
 
 ``` python -m venv venv ```
+
 ``` source/Scripts/activate ```
 
 ## Rodar aplicação
 
 ``` python manage.py makemigrations ```
+
 ``` python manage.py migrate ```
+
 ``` python manage.py runserver ```
 
 ## URls
