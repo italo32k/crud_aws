@@ -22,7 +22,7 @@ def book_view(request):
                 autor = dados['autor'],
                 titulo = dados['titulo'],
                 genero = dados['genero'],
-                quantidade_paginas = dados['quantidade_paginas'],
+                quantidade = dados['quantidade'],
             )
 
             return JsonResponse({'data':'Livro criado com sucesso'},status=200)
