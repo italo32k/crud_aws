@@ -1,60 +1,62 @@
 version: '3.9'
 services:
+  
   aws_psql:
     image: postgres:alpine
     ports:
-      - 5432:5432 
-    container_name: aws_psql 
+      - ${DB_PORT}:5432
+    container_name: ${DB_HOST}
     restart: always
     environment:
-      - POSTGRES_USER=postgres 
-      - POSTGRES_PASSWORD=123 
-      - POSTGRES_DB=aws_db 
-      - POSTGRES_INITDB_ARGS=--username=postgres
+          - POSTGRES_USER=${DB_USERNAME}
+          - POSTGRES_PASSWORD=${DB_PASSWORD}
+          - POSTGRES_DB=${DB_DATABASE}
     volumes:
       - pg-data:/var/lib/postgresql/data
-      - ./init:/docker-entrypoint-initdb.d
     networks:
-      - iff
-
+      - aws-network
+  
   app:
+    
     ports:
-      - 3001:3001 
+      - ${APP_PORT}:3001
     networks:
-      - iff
+      - aws-network
     container_name: aws_app
     environment:
-          - DB_USERNAME=postgres 
-          - DB_PASSWORD=123 
-          - DB_DATABASE=aws_db 
-          
-    links:
+          - DB_USERNAME=${DB_USERNAME}
+          - DB_PASSWORD=${DB_PASSWORD}
+          - DB_DATABASE=${DB_DATABASE}
+          - DB_HOST=aws_psql
+    
+    links:   #Novo atributo incluso
       - aws_psql
     depends_on:
       - aws_psql
+
     build:
       context: .
       dockerfile: Dockerfile
-
+     
   pgadmin4:
     image: dpage/pgadmin4
-    container_name: aws_pgadmin
+    container_name: ${PGADMIN_CONT}
     environment:
-      PGADMIN_DEFAULT_EMAIL: italo.magalhaes@gsuite.iff.edu.br
-      PGADMIN_DEFAULT_PASSWORD: 123
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_USER}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
     ports:
       - '8080:80'
+
     links:
       - aws_psql
     depends_on:
       - aws_psql
+
     networks:
-      - iff
-
+      - aws-network
+  
 networks:
-  iff:
+  aws-network:
     driver: bridge
-
 volumes:
-  pg-data:
-  init:
+  pg-data: 
