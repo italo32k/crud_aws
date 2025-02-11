@@ -1,0 +1,41 @@
+<!-- src/views/carros.ejs -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Livros</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="result-page-container">
+        <div class="result-page-content">
+            <h1>Lista de Livros</h1>
+            <% if (biblioteca.length > 0) { %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Titulo</th>
+                            <th>Autor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% biblioteca.forEach(livros => { %>
+                            <tr>
+                                <td><%= livros.codigo %></td>
+                                <td><%= livros.titulo %></td>
+                                <td><%= livros.autor %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <p>Não há livros disponíveis.</p>
+            <% } %>
+            <a href="/">Voltar para a Página Inicial</a>
+        </div>
+    </div>
+</body>
+</html>

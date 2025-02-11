@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS biblioteca (
+    codigo SERIAL PRIMARY KEY,
+    titulo VARCHAR(50) NOT NULL,
+    autor VARCHAR(50) NOT NULL
+);

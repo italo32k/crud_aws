@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+    <div class="max-w-4xl mx-auto py-10">
+        <h1 class="text-2xl font-bold text-center mb-6">Gerenciador de Biblioteca</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-md border border-black">
+                <h2 class="text-lg font-bold text-center">Inserir Livro</h2>
+                <hr class="my-2 border-blue-500">
+                <form id="contact-form" class="space-y-4">
+                    <label for="contact-titulo">Título:</label>
+                    <input type="text" id="contact-titulo" name="titulo" class="w-full p-2 border border-black rounded" required>
+                    
+                    <label for="contact-autor">Autor:</label>
+                    <input type="text" id="contact-autor" name="autor" class="w-full p-2 border border-black rounded" required>
+                    
+                    <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Enviar</button>
+                </form>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md border border-black">
+                <h2 class="text-lg font-bold text-center">Deletar Livro</h2>
+                <hr class="my-2 border-red-500">
+                <form id="delete-form" class="space-y-4">
+                    <label for="delete-codigo">Código:</label>
+                    <input type="text" id="delete-codigo" name="codigo" class="w-full p-2 border border-black rounded" required>
+                    
+                    <button type="submit" class="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600">Deletar</button>
+                </form>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md border border-black">
+                <h2 class="text-lg font-bold text-center">Atualizar Livro</h2>
+                <hr class="my-2 border-yellow-500">
+                <form id="update-form" class="space-y-4">
+                    <label for="update-codigo">Código:</label>
+                    <input type="text" id="update-codigo" name="codigo" class="w-full p-2 border border-black rounded" required>
+                    
+                    <label for="update-titulo">Novo Título:</label>
+                    <input type="text" id="update-titulo" name="titulo" class="w-full p-2 border border-black rounded" required>
+                    
+                    <label for="update-autor">Novo Autor:</label>
+                    <input type="text" id="update-autor" name="autor" class="w-full p-2 border border-black rounded" required>
+                    
+                    <button type="submit" class="w-full bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600">Atualizar</button>
+                </form>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md border border-black">
+                <h2 class="text-lg font-bold text-center">Buscar Livro</h2>
+                <hr class="my-2 border-green-500">
+                <form id="get-form" class="space-y-4">
+                    <label for="get-codigo">Código:</label>
+                    <input type="text" id="get-codigo" name="codigo" class="w-full p-2 border border-black rounded" required>
+                    
+                    <button type="submit" class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">Buscar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="text-center mt-6">
+            <a href="/biblioteca" class="bg-gray-700 text-white px-6 py-2 rounded hover:bg-gray-800">Ver Lista de Livros</a>
+        </div>
+    </div>
+</body>
+</html>
