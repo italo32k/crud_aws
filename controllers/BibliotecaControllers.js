@@ -1,4 +1,4 @@
-import BibliotecaServices from '../Services/BibliotecaServices.js'; // Adicione a extensão .js
+import BibliotecaServices from '../services/BibliotecaServices.js'; // Adicione a extensão .js
 
 const buscarTodos = async (req, res) => {
     let json = {error:'', result:[]};

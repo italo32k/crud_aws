@@ -3,7 +3,7 @@ import BibliotecaControllers from './controllers/BibliotecaControllers.js'; // C
 
 export const routes = express.Router();
 routes.get('/biblioteca', BibliotecaControllers.buscarTodos)
-routes.get('/result-page/:codigo', BibliotecaControllers.buscarUm)
-routes.post('/submit-form', BibliotecaControllers.inserir)
+routes.get('/biblioteca/:codigo', BibliotecaControllers.buscarUm)
+routes.post('/biblioteca', BibliotecaControllers.inserir)
 routes.put('/biblioteca/:codigo', BibliotecaControllers.alterar)
 routes.delete('/biblioteca/:codigo', BibliotecaControllers.excluir)
