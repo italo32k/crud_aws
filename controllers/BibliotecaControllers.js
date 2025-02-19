@@ -16,7 +16,7 @@ const buscarTodos = async (req, res) => {
 
         res.render('biblioteca', { biblioteca: json.result });
     } catch (error) {
-        json.error = 'Erro ao buscar os biblioteca';
+        json.error = 'Erro ao buscar os livros';
         res.status(500).json(json);
     }
 };
@@ -28,13 +28,13 @@ const buscarUm = async (req, res) => {
         const livro = await BibliotecaServices.buscarUm(codigo);
 
         res.render('result-page', { data: {
-            error: livro ? '' : 'livro não encontrado',
+            error: livro ? '' : 'Livro não encontrado!',
             result: livro || {}
         }});
     } catch (error) {
         console.error('Erro ao buscar o livro:', error);
         res.render('result-page', { data: {
-            error: 'Erro ao buscar o livro',
+            error: 'Erro ao buscar o livro!',
             result: {}
         }});
     }
@@ -56,7 +56,7 @@ const inserir = async (req, res) =>{
         }
     }
     else{
-        json.error = 'Campos nao enviados'
+        json.error = 'Campos não enviados!'
     }
     res.json(json)
 }
@@ -75,7 +75,7 @@ const alterar = async (req, res) => {
         }
     }
     else{
-        json.error = 'Campos nao enviados'
+        json.error = 'Campos não enviados!'
     }
     res.json(json)
 }
@@ -88,15 +88,15 @@ const excluir = async (req, res) => {
         await BibliotecaServices.excluir(codigo)
     }
     else{
-        json.error = 'Campos nao enviados'
+        json.error = 'Campos não enviados!'
     }
     res.json(json)
 }
 
-    export default {
-        buscarTodos,
-        buscarUm,
-        inserir,
-        alterar,
-        excluir
-    };
+export default {
+    buscarTodos,
+    buscarUm,
+    inserir,
+    alterar,
+    excluir
+};

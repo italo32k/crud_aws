@@ -6,36 +6,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Livros</title>
-    <link rel="stylesheet" href="/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="result-page-container">
-        <div class="result-page-content">
-            <h1>Lista de Livros</h1>
-            <% if (biblioteca.length > 0) { %>
-                <table>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-4xl">
+        <h1 class="text-3xl font-bold mb-6 text-gray-800 text-center">Lista de Livros</h1>
+        
+        <% if (biblioteca.length > 0) { %>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-300">
                     <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Titulo</th>
-                            <th>Autor</th>
+                        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                            <th class="py-3 px-6 text-left">Código</th>
+                            <th class="py-3 px-6 text-left">Título</th>
+                            <th class="py-3 px-6 text-left">Autor</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-gray-700 text-sm font-light">
                         <% biblioteca.forEach(livros => { %>
-                            <tr>
-                                <td><%= livros.codigo %></td>
-                                <td><%= livros.titulo %></td>
-                                <td><%= livros.autor %></td>
+                            <tr class="border-b border-gray-300 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap"><%= livros.codigo %></td>
+                                <td class="py-3 px-6 text-left whitespace-nowrap"><%= livros.titulo %></td>
+                                <td class="py-3 px-6 text-left whitespace-nowrap"><%= livros.autor %></td>
                             </tr>
                         <% }); %>
                     </tbody>
                 </table>
-            <% } else { %>
-                <p>Não há livros disponíveis.</p>
-            <% } %>
-            <a href="/">Voltar para a Página Inicial</a>
+            </div>
+        <% } else { %>
+            <p class="text-center text-gray-600">Não há livros disponíveis.</p>
+        <% } %>
+
+        <div class="mt-6 text-center">
+            <a href="/" class="inline-block bg-blue-500 text-white rounded-md py-2 px-4 hover:bg-blue-600 transition duration-300">
+                Voltar para a Página Inicial
+            </a>
         </div>
     </div>
+
 </body>
 </html>

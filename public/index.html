@@ -69,5 +69,84 @@
             <a href="/biblioteca" class="bg-gray-700 text-white px-6 py-2 rounded hover:bg-gray-800">Ver Lista de Livros</a>
         </div>
     </div>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = {
+                titulo: document.getElementById('contact-titulo').value,
+                autor: document.getElementById('contact-autor').value
+            };
+
+            try {
+                const response = await fetch('/biblioteca', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                const result = await response.text();
+                alert("Operação realizada com sucesso!");
+                location.reload();
+            } catch (error) {
+                console.error('Erro:', error);
+            }
+        });
+
+        document.getElementById('delete-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const codigo = document.getElementById('delete-codigo').value;
+
+            try {
+                const response = await fetch(`/biblioteca/${codigo}`, {
+                    method: 'DELETE'
+                });
+                const result = await response.text();
+                alert("Operação realizada com sucesso!");
+                location.reload();
+            } catch (error) {
+                console.error('Erro:', error);
+            }
+        });
+
+        document.getElementById('update-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const codigo = document.getElementById('update-codigo').value;
+            const titulo = document.getElementById('update-titulo').value;
+            const autor = document.getElementById('update-autor').value;
+
+            try {
+                const response = await fetch(`/biblioteca/${codigo}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        titulo: titulo,
+                        autor: autor
+                    })
+                });
+                const result = await response.text();
+                alert("Operação realizada com sucesso!");
+                location.reload();
+            } catch (error) {
+                console.error('Erro:', error);
+            }
+        });
+
+        document.getElementById('get-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const codigo = document.getElementById('get-codigo').value;
+
+            // Redireciona para a página de resultados
+            window.location.href = `/biblioteca/${codigo}`;
+        });
+
+    </script>
 </body>
 </html>

@@ -2,6 +2,7 @@ import db from '../db.js';
 
 const buscarTodos = () => {
   return new Promise((resolve, reject) => {
+
     db.query('SELECT * FROM biblioteca', (error, results) => {
       if (error) {
         reject(error);

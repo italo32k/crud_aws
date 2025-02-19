@@ -1,6 +1,4 @@
 
-import pkg from 'pg';
-const { Pool } = pkg;
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
@@ -9,10 +7,10 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { routes } from './routes.js';
 
-dotenv.config({ path: 'variaveis.env' });
+dotenv.config({ path: '.env' });
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // Determina o caminho do diretório atual
 const __filename = fileURLToPath(import.meta.url);
@@ -38,7 +36,7 @@ app.use((req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
+  console.log("Servidor rodando em http://localhost:3001");
 });
 
 
