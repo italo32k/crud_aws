@@ -49,11 +49,8 @@ Certifique-se de ter instalado em seu sistema:
 📂 projeto
 │-- 📂 controllers
 │-- │-- 📄 BibliotecaControllers.js
-│-- 📂 init
-│-- │-- 📄 init.sql
 │-- 📂 public
 │-- │-- 📄 index.html
-│-- │-- 📄 styles.css
 │-- 📂 services
 │-- │-- 📄 BibliotecaServices.js
 │-- 📂 views
