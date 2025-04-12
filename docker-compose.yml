@@ -1,8 +1,8 @@
-version: '3.9'
+#version: '3.9'
 services:
   
   aws_psql:
-    image: postgres:15-alpine
+    image: postgres:alpine
     ports:
       - ${DB_PORT}:5432
     container_name: ${DB_HOST}
@@ -27,6 +27,7 @@ services:
           - DB_USERNAME=${DB_USERNAME}
           - DB_PASSWORD=${DB_PASSWORD}
           - DB_DATABASE=${DB_DATABASE}
+          - DB_HOST=aws_psql
     
     links:   #Novo atributo incluso
       - aws_psql
