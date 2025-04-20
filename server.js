@@ -10,7 +10,7 @@ import { routes } from './routes.js';
 dotenv.config({ path: '.env' });
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.APP_PORT || 80;
 
 // Determina o caminho do diretório atual
 const __filename = fileURLToPath(import.meta.url);
@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log("Servidor rodando em http://localhost:3001");
+  console.log("Servidor rodando em http://localhost:80");
 });
 
 

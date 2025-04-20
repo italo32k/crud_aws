@@ -1,7 +1,7 @@
 # Gerenciador de Biblioteca com Node.js, PostgreSQL e Docker
 
 ## Descrição
-Esta é uma aplicação CRUD (Criar, Ler, Atualizar, Deletar) full-stack, construída com Node.js para o backend, PostgreSQL como banco de dados e Docker para conteinerização. A aplicação roda localmente em `http://localhost:3000`.
+Esta é uma aplicação CRUD (Criar, Ler, Atualizar, Deletar) full-stack, construída com Node.js para o backend, PostgreSQL como banco de dados e Docker para conteinerização. A aplicação roda localmente em `http://localhost:80`.
 
 ## Funcionalidades
 - **Criar**: Adicionar novos registros ao banco de dados.
@@ -32,7 +32,7 @@ Certifique-se de ter instalado em seu sistema:
    ```sh
    docker-compose up -d
    ```
-3. Acesse a aplicação em `http://localhost:3000`.
+3. Acesse a aplicação em `http://localhost:80`.
 
 ### Rodando Localmente (Sem Docker)
 1. Instale as dependências:
